@@ -1,10 +1,12 @@
+import photo from "./assets/photoweslay.jpg";
+import Button from "./Button";
 const PROJECTS = [
   {
     id: "01",
-    name: "Nom du projet 1",
-    desc: "Courte description du projet : ce qu'il fait et le problème qu'il résout.",
-    stack: ["HTML", "JavaScript", "CSS", "Open-Meteo API"],
-    repo: "https://weslay007.github.io/Devoir2_INF3500_OLIW/",
+    name: "Site Web Responsive",
+    desc: "Développement d'un site web responsive conçu avec HTML, CSS et JavaScript.",
+    tools: ["HTML", "JavaScript", "CSS",],
+    repo: "https://weslay007.github.io/SITE-WM-MULTI-SERVICES/",
   },
   {
     id: "02",
@@ -24,9 +26,18 @@ const PROJECTS = [
 ];
 
 const SKILLS = [
-  { group: "Frontend", items: ["HTML", "CSS", "JavaScript", "React", "Vite"] },
-  { group: "Backend", items: ["Node.js", "Express", "REST API"] },
-  { group: "Outils", items: ["Git", "GitHub", "VS Code", "Figma"] },
+  { group: "Développement Web",
+    items: ["HTML", "CSS", "JavaScript", "React", "Vite"], 
+
+  },
+  { group: "UI/UX Design", 
+    items: ["Figma", "Canva"],
+  },  
+  { group: "Design Graphique",
+    items: ["Canva", "Adobe Photoshop"],
+  },
+  
+  { group: "Outils", items: ["Git", "GitHub", "VS Code", "Figma", "Canva"] },
 ];
 
 function NavBar() {
@@ -55,7 +66,7 @@ function Hero() {
         </p>
         <div className="hero__actions">
           <a className="btn btn--primary" href="#projects">
-            Voir mes créations
+            Voir mes Projets
           </a>
           <a className="btn btn--ghost" href="#contact">
             Me contacter
@@ -65,8 +76,7 @@ function Hero() {
 
       <div className="hero__portrait">
         <div className="portrait-frame">
-          {/* Remplace src par ta propre photo dans src/assets/ */}
-          <img src="/src/assets/photoweslay.jpg" alt="Portrait de OLIBRICE Weslay" />
+          <img src={photo} alt="Portrait de OLIBRICE Weslay" />
         </div>
         <p className="hero__name">
           OLIBRICE <span className="hero__name-first">Weslay</span>
@@ -95,11 +105,11 @@ En 2025, j'ai eu l'opportunité de rejoindre l'ISTEAH. C'est là que j'ai commen
 function Skills() {
   return (
     <section id="skills" className="section skills">
-      <h2 className="section__title">Compétences</h2>
+      <h2 className="section__title">Mes Compétences</h2>
       <div className="skills__grid">
         {SKILLS.map((group) => (
-          <div className="skills__group" key={group.group}>
-            <p className="skills__group-title"> Développement Web {group.group.toLowerCase()}/</p>
+          <div className="skills__card" key={group.group}>
+            <h3 className="skills__card-title">{group.group}</h3>
             <ul className="skills__list">
               {group.items.map((item) => (
                 <li key={item} className="skills__tag">
@@ -148,7 +158,7 @@ function Contact() {
       </p>
       <div className="contact__links">
         <a href="mailto:olibriceweslay@gmail.com">olibriceweslay@gmail.com</a>
-        <a href="tel:+(509) 3205-01-42">Téléphone: +(509) 3205-01-42</a>
+        <a href="tel:+50932050142">Téléphone: +(509) 3205-01-42</a>
         
       </div>
     </section>
